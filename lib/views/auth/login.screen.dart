@@ -1,8 +1,6 @@
 import 'package:chefio/config/imgs.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -12,7 +10,11 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Image.asset(Imgs.onboardingImg),
+          Image.asset(
+            Imgs.onboardingImg,
+            height: 410,
+            fit: BoxFit.cover,
+          ),
           Text(Strings.startCooking),
           const SizedBox(height: 16),
           Text(Strings.onboardingDesc),

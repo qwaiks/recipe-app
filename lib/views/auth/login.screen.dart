@@ -1,11 +1,9 @@
 import 'package:chefio/components/chefio_button.dart';
 import 'package:chefio/components/chefio_textfield.dart';
 import 'package:chefio/config/colors.dart';
-import 'package:chefio/config/imgs.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
 import 'package:chefio/config/svgs.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -13,23 +11,9 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    final form = Form(
+      child: Column(
         children: [
-          const Text(
-            Strings.welcome,
-            style: Styles.headerLarge,
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            Strings.accountDetailPrompt,
-            style: Styles.bodySmall.copyWith(color: AppColors.secondaryText),
-          ),
-          const SizedBox(
-            height: 32,
-          ),
           const ChefioTextField(
             hintText: Strings.loginHintText,
             leadingIcon: SVGS.icMail,
@@ -52,6 +36,28 @@ class LoginScreen extends StatelessWidget {
               return null;
             },
           ),
+        ],
+      ),
+    );
+
+    return Scaffold(
+      body: Column(
+        children: [
+          const Text(
+            Strings.welcome,
+            style: Styles.headerLarge,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            Strings.accountDetailPrompt,
+            style: Styles.bodySmall.copyWith(color: AppColors.secondaryText),
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          form,
           const SizedBox(
             height: 16,
           ),

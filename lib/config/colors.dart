@@ -9,4 +9,5 @@ class AppColors {
   static const form = Color(0xFFF4F5F7);
   static const hintTextColor = Color(0xFF9FA5C0);
   static const textFieldBorderColor = Color(0XFFD0DBEA);
+  static const googleColor = Color(0XFFFF5842);
 }

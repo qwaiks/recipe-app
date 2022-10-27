@@ -10,39 +10,45 @@ class ChefioButton extends StatelessWidget {
   final bool isTextButton;
   final bool isOutlinedButton;
   final String? leadingIcon;
+  final int? width;
+  final Color? textColor;
+  final Color? backgroundColor;
 
   const ChefioButton(
       {super.key,
       this.onPressed,
+      this.width,
       this.disabled = false,
       this.text,
       this.isTextButton = false,
       this.isOutlinedButton = false,
-      this.leadingIcon});
+      this.leadingIcon,
+      this.textColor = Colors.white,
+      this.backgroundColor = AppColors.primary});
 
   //TODO: IMPLEMENTATION OF FACTORY METHODS FOR ICON AND TEXT BUTTOM IMPL
 
   @override
   Widget build(BuildContext context) {
     final outlineStyle = OutlinedButton.styleFrom(
-      backgroundColor: AppColors.primary,
+      backgroundColor: backgroundColor,
       textStyle: Styles.bodyNormal,
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
     );
 
     final buttonStyle = ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        textStyle: Styles.bodyNormal,
+        backgroundColor: backgroundColor,
+        textStyle: Styles.bodyNormal.copyWith(color: textColor),
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)));
 
     final textStyle = TextButton.styleFrom(
-        textStyle: Styles.bodyNormal,
+        textStyle: Styles.bodyNormal.copyWith(color: textColor),
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)));
 
     return ElevatedButton(
-      onPressed: disabled! ? onPressed : null,
+      onPressed: disabled ? onPressed : null,
       style: isOutlinedButton
           ? outlineStyle
           : isTextButton

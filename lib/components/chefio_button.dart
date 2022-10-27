@@ -20,6 +20,8 @@ class ChefioButton extends StatelessWidget {
       this.isOutlinedButton = false,
       this.leadingIcon});
 
+  //TODO: IMPLEMENTATION OF FACTORY METHODS FOR ICON AND TEXT BUTTOM IMPL
+
   @override
   Widget build(BuildContext context) {
     final outlineStyle = OutlinedButton.styleFrom(
@@ -35,8 +37,10 @@ class ChefioButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)));
 
     final textStyle = TextButton.styleFrom(
-      textStyle: Styles.bodyNormal,
-    );
+        textStyle: Styles.bodyNormal,
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)));
+
     return ElevatedButton(
       onPressed: disabled! ? onPressed : null,
       style: isOutlinedButton

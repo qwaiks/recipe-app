@@ -7,4 +7,6 @@ class AppColors {
   static const secondaryText = Color(0xFF24d37f);
   static const outline = Color(0xFFD0DBEA);
   static const form = Color(0xFFF4F5F7);
+  static const hintTextColor = Color(0xFF9FA5C0);
+  static const textFieldBorderColor = Color(0XFFD0DBEA);
 }

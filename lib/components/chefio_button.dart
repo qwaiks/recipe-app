@@ -10,14 +10,14 @@ class ChefioButton extends StatelessWidget {
   final bool isTextButton;
   final bool isOutlinedButton;
   final String? leadingIcon;
-  final int? width;
+  final bool? fillWidth;
   final Color? textColor;
   final Color? backgroundColor;
 
   const ChefioButton(
       {super.key,
       this.onPressed,
-      this.width,
+      this.fillWidth = false,
       this.disabled = false,
       this.text,
       this.isTextButton = false,
@@ -30,32 +30,48 @@ class ChefioButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final outlineStyle = OutlinedButton.styleFrom(
-      backgroundColor: backgroundColor,
-      textStyle: Styles.bodyNormal,
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
-    );
-
-    final buttonStyle = ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor,
+    final outlineStyle = OutlinedButton(
+      onPressed: !disabled ? onPressed : null,
+      style: OutlinedButton.styleFrom(
         textStyle: Styles.bodyNormal.copyWith(color: textColor),
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)));
-
-    final textStyle = TextButton.styleFrom(
-        textStyle: Styles.bodyNormal.copyWith(color: textColor),
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)));
-
-    return ElevatedButton(
-      onPressed: disabled ? onPressed : null,
-      style: isOutlinedButton
-          ? outlineStyle
-          : isTextButton
-              ? textStyle
-              : buttonStyle,
-      child: Text(text ?? ''),
+        minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
+        side: BorderSide(color: backgroundColor!, width: 1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(32),
+          side: BorderSide(color: backgroundColor!, width: 1),
+        ),
+      ),
+      child:
+          Text(text ?? '', style: Styles.bodyNormal.copyWith(color: textColor)),
     );
+
+    final buttonStyle = ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+            backgroundColor: backgroundColor,
+            textStyle: Styles.bodyNormal.copyWith(color: textColor),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
+            minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(32))),
+        child: Text(text ?? ''));
+
+    final textStyle = TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+            textStyle: Styles.bodyNormal.copyWith(color: textColor),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
+            minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(32))),
+        child: Text(text ?? ''));
+
+    return isOutlinedButton
+        ? outlineStyle
+        : isTextButton
+            ? textStyle
+            : buttonStyle;
   }
 
   Widget iconButton() {

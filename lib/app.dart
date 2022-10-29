@@ -1,3 +1,5 @@
+import 'package:chefio/config/theme.dart';
+import 'package:chefio/views/onboarding/onboarding.screen.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -8,9 +10,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Chefio',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: Themes.defaultTheme,
+      home: OnBoardingScreen(),
     );
   }
 }

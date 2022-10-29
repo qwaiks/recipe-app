@@ -1,4 +1,6 @@
 import 'package:chefio/components/chefio_button.dart';
+import 'package:chefio/config/colors.dart';
+import 'package:chefio/config/style.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/imgs.dart';
@@ -10,25 +12,40 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Image.asset(
-          Imgs.onboardingImg,
-          height: 410,
-          fit: BoxFit.cover,
-        ),
-        const Text(Strings.startCooking),
-        const SizedBox(height: 16),
-        const Text(Strings.onboardingDesc),
-        const Spacer(),
-        ChefioButton(
-          text: Strings.getStarted,
-          onPressed: () {},
-        ),
-        const SizedBox(
-          height: 38,
-        )
-      ],
+        body: SafeArea(
+      child: Column(
+        children: [
+          Image.asset(
+            Imgs.onboardingImg,
+            height: 500,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            Strings.startCooking,
+            style: Styles.headerLarge,
+          ),
+          const SizedBox(height: 16),
+          Text(
+            Strings.onboardingDesc,
+            style: Styles.bodyLagre.copyWith(color: AppColors.secondaryText),
+            textAlign: TextAlign.center,
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: ChefioButton(
+              text: Strings.getStarted,
+              fillWidth: true,
+              onPressed: () {},
+            ),
+          ),
+          const SizedBox(
+            height: 38,
+          )
+        ],
+      ),
     ));
   }
 }

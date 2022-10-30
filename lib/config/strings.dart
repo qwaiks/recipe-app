@@ -29,4 +29,12 @@ class Strings {
   static const resetPasswordTitle = 'Reset your password';
   static const resetPasswordPrompt = 'Please enter your new password';
   static const done = 'Done';
+
+  static const checkMail = 'Check your email';
+  static const otpValidation = 'We’ve sent the code to your email';
+  static const optExpirationPrompt = 'code expires in: ';
+  static const next = 'Next';
+  static const sendAgain = 'Send again';
+
+  static const checkMailPrompt = 'We’ve sent the code to your email';
 }

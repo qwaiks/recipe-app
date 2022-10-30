@@ -42,8 +42,9 @@ class ChefioButton extends StatelessWidget {
           side: BorderSide(color: backgroundColor!, width: 1),
         ),
       ),
-      child:
-          Text(text ?? '', style: Styles.bodyNormal.copyWith(color: textColor)),
+      child: Text(text ?? '',
+          style: Styles.bodyNormal
+              .copyWith(color: disabled ? AppColors.secondaryText : textColor)),
     );
 
     final buttonStyle = ElevatedButton(

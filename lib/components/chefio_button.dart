@@ -17,7 +17,7 @@ class ChefioButton extends StatelessWidget {
   const ChefioButton(
       {super.key,
       this.onPressed,
-      this.fillWidth = false,
+      this.fillWidth = true,
       this.disabled = false,
       this.text,
       this.isTextButton = false,

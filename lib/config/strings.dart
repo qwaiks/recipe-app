@@ -17,4 +17,7 @@ class Strings {
   static const google = 'Google';
   static const registerOption = 'Don’t have any account?  ';
   static const password = "Password";
+  static const passwordValidationPrompt = 'Your Password must contain:';
+  static const  passwordCharacterValidationPrompt ='Atleast 6 characters';
+  static const passwordNumberValidationPrompt = 'Contains a number';
 }

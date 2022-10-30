@@ -1,3 +1,4 @@
+import 'package:chefio/config/colors.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
 import 'package:flutter/material.dart';
@@ -45,21 +46,32 @@ class RegisterScreen extends StatelessWidget {
     );
 
     return Scaffold(
-        body: Column(
-      children: [
-        const Text(
-          Strings.welcome,
-          style: Styles.headerLarge,
+        body: SafeArea(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(
+            24,
+          ),
+          child: Column(
+            children: [
+              const Text(
+                Strings.welcome,
+                style: Styles.headerLarge,
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Text(Strings.accountDetailPrompt,
+                  style: Styles.bodyNormal
+                      .copyWith(color: AppColors.secondaryText)),
+              const SizedBox(
+                height: 32,
+              ),
+              form
+            ],
+          ),
         ),
-        const SizedBox(
-          height: 8,
-        ),
-        const Text(Strings.accountDetailPrompt, style: Styles.bodySmall),
-        const SizedBox(
-          height: 32,
-        ),
-        form
-      ],
+      ),
     ));
   }
 }

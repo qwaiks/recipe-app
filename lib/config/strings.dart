@@ -20,4 +20,8 @@ class Strings {
   static const passwordValidationPrompt = 'Your Password must contain:';
   static const  passwordCharacterValidationPrompt ='Atleast 6 characters';
   static const passwordNumberValidationPrompt = 'Contains a number';
+
+  static const passwordRecovery ='Password recovery';
+  static const passwordRecoveryPrompt ='Enter your email to recover your password';
+  static const recover ='Recover';
 }

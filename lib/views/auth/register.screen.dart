@@ -4,7 +4,6 @@ import 'package:chefio/config/colors.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../components/chefio_textfield.dart';
 import '../../config/svgs.dart';

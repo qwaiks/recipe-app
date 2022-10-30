@@ -60,6 +60,9 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
       contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       fillColor: AppColors.form,
       border: outlineBorder,
+      focusedBorder: outlineBorder.copyWith(
+          borderSide: outlineBorder.borderSide
+              .copyWith(color: AppColors.mainText, width: 1)),
       errorBorder: outlineBorder.copyWith(
         borderSide:
             outlineBorder.borderSide.copyWith(color: AppColors.secondary),

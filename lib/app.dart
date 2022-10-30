@@ -1,4 +1,5 @@
 import 'package:chefio/config/theme.dart';
+import 'package:chefio/views/auth/login.screen.dart';
 import 'package:chefio/views/onboarding/onboarding.screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Chefio',
       theme: Themes.defaultTheme,
-      home: OnBoardingScreen(),
+      home: LoginScreen(),
     );
   }
 }

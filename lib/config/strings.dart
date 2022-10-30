@@ -15,6 +15,6 @@ class Strings {
   static const signUp = 'Sign Up';
   static const continueWith = 'Or continue with';
   static const google = 'Google';
-  static const registerOption = 'Don’t have any account?';
+  static const registerOption = 'Don’t have any account?  ';
   static const password = "Password";
 }

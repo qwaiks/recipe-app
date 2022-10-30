@@ -47,10 +47,11 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
       hintStyle: Styles.bodyNormal.copyWith(
         color: AppColors.hintTextColor,
       ),
-      prefixIconConstraints: BoxConstraints.tight(const Size.fromWidth(24)),
+      prefixIconConstraints: BoxConstraints.tight(const Size(60, 24)),
       prefixIcon: (widget.leadingIcon != null)
           ? SvgPicture.asset(widget.leadingIcon!)
           : null,
+      suffixIconConstraints: BoxConstraints.tight(const Size(60, 24)),
       suffixIcon: widget.isPasswordField
           ? _buildPasswordFieldVisibilityToggle()
           : widget.showSuffix
@@ -69,6 +70,7 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
       keyboardType: widget.inputType,
       decoration: inputDecoration,
       validator: widget.validators,
+      obscureText: widget.isPasswordField ? _obscureText : false,
       cursorColor: AppColors.primary,
       controller: widget.controller,
       style: Styles.headerNormal,
@@ -85,14 +87,15 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
 
   Widget _buildPasswordFieldVisibilityToggle() {
     return InkWell(
-      child: SvgPicture.asset(
-        _obscureText ? SVGS.icPasswordVisible : SVGS.icPasswordHidden,
-      ),
+      borderRadius: BorderRadius.circular(30),
       onTap: () {
         setState(() {
           _obscureText = !_obscureText;
         });
       },
+      child: SvgPicture.asset(
+        _obscureText ? SVGS.icPasswordVisible : SVGS.icPasswordHidden,
+      ),
     );
   }
 }

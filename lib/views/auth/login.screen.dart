@@ -41,65 +41,91 @@ class LoginScreen extends StatelessWidget {
     );
 
     return Scaffold(
-      body: Column(
-        children: [
-          const Text(
-            Strings.welcome,
-            style: Styles.headerLarge,
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            Strings.accountDetailPrompt,
-            style: Styles.bodySmall.copyWith(color: AppColors.secondaryText),
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          form,
-          const SizedBox(
-            height: 16,
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: ChefioButton(
-              text: Strings.forgetPassword,
-              isTextButton: true,
-              onPressed: () {},
-            ),
-          ),
-          const SizedBox(
-            height: 72,
-          ),
-          ChefioButton(
-            text: Strings.login,
-            onPressed: () {},
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          ChefioButton(
-            text: Strings.google,
-            leadingIcon: SVGS.icGoogle,
-            backgroundColor: AppColors.googleColor,
-            onPressed: () {},
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text.rich(
-            TextSpan(
-              text: Strings.registerOption,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
               children: [
-                TextSpan(
-                    text: Strings.signUp,
-                    style:
-                        Styles.bodyNormal.copyWith(color: AppColors.primary)),
+                const SizedBox(
+                  height: 107,
+                ),
+                const Text(
+                  Strings.welcome,
+                  style: Styles.headerLarge,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  Strings.accountDetailPrompt,
+                  style: Styles.bodyNormal
+                      .copyWith(color: AppColors.secondaryText),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                form,
+                const SizedBox(
+                  height: 16,
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: ChefioButton(
+                    text: Strings.forgetPassword,
+                    isTextButton: true,
+                    textColor: AppColors.mainText,
+                    onPressed: () {},
+                  ),
+                ),
+                const SizedBox(
+                  height: 72,
+                ),
+                ChefioButton(
+                  fillWidth: true,
+                  text: Strings.login,
+                  onPressed: () {},
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Text(
+                  Strings.continueWith,
+                  style: Styles.bodyNormal.copyWith(
+                    color: AppColors.secondaryText,
+                  ),
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                ChefioButton(
+                  fillWidth: true,
+                  text: Strings.google,
+                  leadingIcon: SVGS.icGoogle,
+                  backgroundColor: AppColors.googleColor,
+                  onPressed: () {},
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Text.rich(
+                    TextSpan(
+                      text: Strings.registerOption,
+                      children: [
+                        TextSpan(
+                            text: Strings.signUp,
+                            style: Styles.headerSmall
+                                .copyWith(color: AppColors.primary)),
+                      ],
+                    ),
+                    style: Styles.bodyNormal),
+                const SizedBox(
+                  height: 24,
+                ),
               ],
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

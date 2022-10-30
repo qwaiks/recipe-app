@@ -55,17 +55,23 @@ class ChefioButton extends StatelessWidget {
             minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(32))),
-        child: Text(text ?? ''));
+        child: Text(
+          text ?? '',
+          style: Styles.bodyNormal.copyWith(color: textColor),
+        ));
 
     final textStyle = TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
             textStyle: Styles.bodyNormal.copyWith(color: textColor),
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 19),
             minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(32))),
-        child: Text(text ?? ''));
+        child: Text(
+          text ?? '',
+          style: Styles.bodyNormal.copyWith(color: textColor),
+        ));
 
     return isOutlinedButton
         ? outlineStyle

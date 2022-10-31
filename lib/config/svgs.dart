@@ -9,4 +9,7 @@ class SVGS {
 
   static const icValidationActive = 'assets/svgs/ic_validation_active.svg';
   static const icValidationInactive = 'assets/svgs/ic_validation_inactive.svg';
+
+  static const icHeartActive = 'assets/svgs/ic_heart.svg';
+  static const icHeartInactive = 'assets/svgs/ic_heart.svg';
 }

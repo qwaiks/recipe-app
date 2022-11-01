@@ -37,4 +37,6 @@ class Strings {
   static const sendAgain = 'Send again';
 
   static const checkMailPrompt = 'We’ve sent the code to your email';
+
+  static const search = 'Search';
 }

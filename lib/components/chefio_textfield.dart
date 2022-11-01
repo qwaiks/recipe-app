@@ -13,6 +13,7 @@ class ChefioTextField extends StatefulWidget {
   final bool showSuffix;
   final TextEditingController? controller;
   final String? Function(String?)? validators;
+  final Function(String?)? onChanged;
 
   const ChefioTextField(
       {super.key,
@@ -23,6 +24,7 @@ class ChefioTextField extends StatefulWidget {
       this.showSuffix = false,
       this.inputType = TextInputType.text,
       this.validators,
+      this.onChanged,
       this.controller});
 
   @override
@@ -31,10 +33,18 @@ class ChefioTextField extends StatefulWidget {
 
 class _ChefioTextFieldState extends State<ChefioTextField> {
   bool _obscureText = true;
+  bool _showClearSuffix = false;
+  TextEditingController? _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = widget.controller ?? TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final outlineBorder = OutlineInputBorder(
+    final border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(32.0),
       borderSide: BorderSide(
         width: widget.outlined ? 1.0 : 0.0,
@@ -47,42 +57,71 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
       hintStyle: Styles.bodyNormal.copyWith(
         color: AppColors.hintTextColor,
       ),
-      prefixIconConstraints: BoxConstraints.tight(const Size(60, 24)),
+      prefixIconConstraints: BoxConstraints.tight(
+        const Size(60, 24),
+      ),
       prefixIcon: (widget.leadingIcon != null)
           ? SvgPicture.asset(widget.leadingIcon!)
           : null,
-      suffixIconConstraints: BoxConstraints.tight(const Size(60, 24)),
+      suffixIconConstraints: BoxConstraints.tight(
+        const Size(60, 24),
+      ),
       suffixIcon: widget.isPasswordField
           ? _buildPasswordFieldVisibilityToggle()
-          : widget.showSuffix
+          : _showClearSuffix
               ? _defaultSuffixToogle()
               : null,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-      fillColor: AppColors.form,
-      border: outlineBorder,
-      focusedBorder: outlineBorder.copyWith(
-          borderSide: outlineBorder.borderSide
-              .copyWith(color: AppColors.mainText, width: 1)),
-      errorBorder: outlineBorder.copyWith(
-        borderSide:
-            outlineBorder.borderSide.copyWith(color: AppColors.secondary),
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 24,
+        vertical: 16,
       ),
+      filled: !widget.outlined,
+      fillColor: AppColors.form,
+      enabledBorder: border,
+      border: border,
+      focusedBorder: !widget.outlined
+          ? border
+          : border.copyWith(
+              borderSide: border.borderSide.copyWith(
+              color: AppColors.mainText,
+              width: 1,
+            )),
+      errorBorder: !widget.outlined
+          ? border
+          : border.copyWith(
+              borderSide: border.borderSide.copyWith(
+                color: AppColors.secondary,
+              ),
+            ),
     );
 
     return TextFormField(
+      controller: _controller,
       keyboardType: widget.inputType,
       decoration: inputDecoration,
       validator: widget.validators,
       obscureText: widget.isPasswordField ? _obscureText : false,
       cursorColor: AppColors.primary,
-      controller: widget.controller,
+      onChanged: widget.showSuffix ? onChangeAltered : widget.onChanged,
       style: Styles.headerNormal,
     );
   }
 
+  onChangeAltered(String? value) {
+    setState(() {
+      _showClearSuffix = value != null && value.isNotEmpty;
+    });
+    if (widget.onChanged != null) {
+      widget.onChanged!(value);
+    }
+  }
+
   Widget _defaultSuffixToogle() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        _controller!.clear();
+        onChangeAltered(_controller!.text);
+      },
       radius: 30,
       child: SvgPicture.asset(SVGS.icClose),
     );

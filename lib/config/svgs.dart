@@ -12,4 +12,6 @@ class SVGS {
 
   static const icHeartActive = 'assets/svgs/ic_heart.svg';
   static const icHeartInactive = 'assets/svgs/ic_heart.svg';
+
+  static const icSearch = 'assets/svgs/ic_search.svg';
 }

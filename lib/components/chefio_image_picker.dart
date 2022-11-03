@@ -16,7 +16,6 @@ class ChefioImagePicker extends StatelessWidget {
       dashPattern: const [10, 5],
       borderType: BorderType.RRect,
       color: AppColors.borderBolor,
-      strokeWidth: 1,
       padding: const EdgeInsets.symmetric(vertical: 16),
       radius: const Radius.circular(13),
       child: SizedBox(

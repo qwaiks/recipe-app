@@ -27,6 +27,7 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
           const ChefioTextField(
             label: Strings.foodName,
             hintText: Strings.foodNameHintText,
+            outlined: true,
           ),
           const SizedBox(
             height: 24,
@@ -34,6 +35,9 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
           const ChefioTextField(
             label: Strings.description,
             hintText: Strings.foodDescHintText,
+            outlined: true,
+            minLines: 3,
+            maxLines: 5,
           ),
           const SizedBox(
             height: 24,

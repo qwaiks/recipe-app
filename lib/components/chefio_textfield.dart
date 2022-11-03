@@ -50,8 +50,12 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final multilinedTextField = widget.minLines != null && widget.minLines! > 1;
+
     final border = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(32.0),
+      borderRadius: multilinedTextField
+          ? BorderRadius.circular(8.0)
+          : BorderRadius.circular(32.0),
       borderSide: BorderSide(
         width: widget.outlined ? 1.0 : 0.0,
         color: AppColors.borderBolor,
@@ -77,8 +81,8 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
           : _showClearSuffix
               ? _defaultSuffixToogle()
               : null,
-      contentPadding: const EdgeInsets.symmetric(
-        horizontal: 24,
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: multilinedTextField ? 16 : 24,
         vertical: 16,
       ),
       filled: !widget.outlined,
@@ -121,7 +125,7 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
           obscureText: widget.isPasswordField ? _obscureText : false,
           cursorColor: AppColors.primary,
           onChanged: widget.showSuffix ? onChangeAltered : widget.onChanged,
-          style: Styles.headerNormal,
+          style: multilinedTextField ? Styles.bodyNormal : Styles.headerNormal,
         )
       ],
     );

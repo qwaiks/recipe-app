@@ -1,9 +1,8 @@
+import 'package:chefio/components/chefio_image_picker.dart';
 import 'package:chefio/components/chefio_slider.dart';
 import 'package:chefio/components/chefio_textfield.dart';
 import 'package:chefio/config/style.dart';
-import 'package:chefio/config/svgs.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../config/strings.dart';
 
@@ -19,28 +18,7 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final featureImage = Container(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      child: Column(
-        children: [
-          SvgPicture.asset(SVGS.icImage),
-          const SizedBox(
-            height: 16,
-          ),
-          const Text(
-            Strings.addCoverPhoto,
-            style: Styles.headerSmall,
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          const Text(
-            Strings.imageUploadLimit,
-            style: Styles.bodySmall,
-          ),
-        ],
-      ),
-    );
+    const featureImage = ChefioImagePicker();
 
     final form = Form(
       child: Column(
@@ -88,7 +66,16 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [form],
+            children: [
+              const SizedBox(
+                height: 32,
+              ),
+              featureImage,
+              const SizedBox(
+                height: 24,
+              ),
+              form,
+            ],
           ),
         ),
       ),

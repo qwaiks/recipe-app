@@ -14,7 +14,7 @@ class OTPInputField extends StatelessWidget {
       borderRadius: BorderRadius.circular(20.0),
       borderSide: const BorderSide(
         width: 1,
-        color: AppColors.textFieldBorderColor,
+        color: AppColors.borderBolor,
       ),
     );
 

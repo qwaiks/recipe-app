@@ -54,7 +54,7 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
       borderRadius: BorderRadius.circular(32.0),
       borderSide: BorderSide(
         width: widget.outlined ? 1.0 : 0.0,
-        color: AppColors.textFieldBorderColor,
+        color: AppColors.borderBolor,
       ),
     );
 

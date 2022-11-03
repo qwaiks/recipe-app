@@ -7,10 +7,13 @@ import 'package:flutter_svg/svg.dart';
 class ChefioTextField extends StatefulWidget {
   final String? hintText;
   final String? leadingIcon;
+  final String? label;
   final TextInputType inputType;
   final bool outlined;
   final bool isPasswordField;
   final bool showSuffix;
+  final int? minLines;
+  final int? maxLines;
   final TextEditingController? controller;
   final String? Function(String?)? validators;
   final Function(String?)? onChanged;
@@ -25,7 +28,10 @@ class ChefioTextField extends StatefulWidget {
       this.inputType = TextInputType.text,
       this.validators,
       this.onChanged,
-      this.controller});
+      this.controller,
+      this.label,
+      this.minLines,
+      this.maxLines = 1});
 
   @override
   State<ChefioTextField> createState() => _ChefioTextFieldState();
@@ -95,15 +101,29 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
             ),
     );
 
-    return TextFormField(
-      controller: _controller,
-      keyboardType: widget.inputType,
-      decoration: inputDecoration,
-      validator: widget.validators,
-      obscureText: widget.isPasswordField ? _obscureText : false,
-      cursorColor: AppColors.primary,
-      onChanged: widget.showSuffix ? onChangeAltered : widget.onChanged,
-      style: Styles.headerNormal,
+    final label = Text(widget.label!, style: Styles.headerNormal);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        widget.label != null ? label : const SizedBox(),
+        SizedBox(
+          height: widget.label != null ? 10 : 0,
+        ),
+        TextFormField(
+          controller: _controller,
+          keyboardType: widget.inputType,
+          decoration: inputDecoration,
+          validator: widget.validators,
+          minLines: widget.minLines,
+          maxLines: widget.maxLines,
+          obscureText: widget.isPasswordField ? _obscureText : false,
+          cursorColor: AppColors.primary,
+          onChanged: widget.showSuffix ? onChangeAltered : widget.onChanged,
+          style: Styles.headerNormal,
+        )
+      ],
     );
   }
 

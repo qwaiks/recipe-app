@@ -35,8 +35,17 @@ class Strings {
   static const optExpirationPrompt = 'code expires in: ';
   static const next = 'Next';
   static const sendAgain = 'Send again';
-
   static const checkMailPrompt = 'We’ve sent the code to your email';
-
   static const search = 'Search';
+  static const enterIngredients = 'Enter ingredient';
+
+  static const addCoverPhoto = 'Add Cover Photo';
+  static const imageUploadLimit = '(up to 12 Mb)';
+
+  static const foodName= 'Food Name';
+  static const foodNameHintText ='Enter food name';
+  static const foodDescHintText = 'Tell a little about your food';
+  static const description ='Description';
+  static const cookingDuration = 'Cooking Duration ';
+  static const cookingDurationCont= '(in minutes)';
 }

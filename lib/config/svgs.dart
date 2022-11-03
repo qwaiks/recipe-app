@@ -14,4 +14,10 @@ class SVGS {
   static const icHeartInactive = 'assets/svgs/ic_heart.svg';
 
   static const icSearch = 'assets/svgs/ic_search.svg';
+
+  static const clock = 'assets/svgs/ic_clock.svg';
+  static const arrowUpward = 'assets/svgs/ic_arrow_upward.svg';
+
+  static const icDrag = 'assets/svgs/ic_drag.svg';
+  static const icImage = 'assets/svgs/ic_image.svg';
 }

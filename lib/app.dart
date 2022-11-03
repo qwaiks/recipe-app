@@ -1,6 +1,5 @@
 import 'package:chefio/config/theme.dart';
-import 'package:chefio/views/auth/login.screen.dart';
-import 'package:chefio/views/home/dashboard.screen.dart';
+import 'package:chefio/views/create_recipe/create_recipe.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -12,7 +11,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Chefio',
       theme: Themes.defaultTheme,
-      home: DashboardScreen(),
+      home: CreateRecipeScreen(),
     );
   }
 }

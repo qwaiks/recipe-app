@@ -1,22 +1,127 @@
 import 'dart:ui';
 
-import 'package:chefio/components/chefio_textfield.dart';
+import 'package:chefio/components/chefio_button.dart';
 import 'package:chefio/components/ingredient_title.dart';
-import 'package:chefio/config/colors.dart';
+import 'package:chefio/components/recipe_step.dart';
+import 'package:chefio/config/strings.dart';
+import 'package:chefio/config/style.dart';
+import 'package:chefio/config/svgs.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../config/svgs.dart';
+import '../../config/colors.dart';
 
-class AddIngredientScreen extends StatelessWidget {
+class AddIngredientScreen extends StatefulWidget {
   const AddIngredientScreen({super.key});
 
   @override
+  State<AddIngredientScreen> createState() => _AddIngredientScreenState();
+}
+
+class _AddIngredientScreenState extends State<AddIngredientScreen> {
+  int ingredientCount = 1;
+  int recipeSteps = 1;
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('ReorderableListView Sample')),
-        body: const ReorderableExample(),
+    final ingredientList = SliverList(
+      delegate: SliverChildListDelegate(
+        [
+          const Text(
+            Strings.ingredients,
+            style: Styles.headerNormal,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          for (int index = 0; index < ingredientCount; index++)
+            IngredientTile(
+              key: ValueKey(index),
+            ),
+          const SizedBox(
+            height: 16,
+          ),
+          ChefioButton(
+            text: Strings.ingredient,
+            leadingIcon: SVGS.icAdd,
+            isOutlinedButton: true,
+            textColor: AppColors.mainText,
+            backgroundColor: AppColors.outline,
+            onPressed: () {
+              setState(() {
+                ingredientCount++;
+              });
+            },
+          ),
+        ],
+      ),
+    );
+
+    final steps = SliverList(
+        delegate: SliverChildListDelegate([
+      const Text(
+        Strings.steps,
+        style: Styles.headerNormal,
+      ),
+      const SizedBox(
+        height: 16,
+      ),
+      for (int index = 0; index < recipeSteps; index++)
+        RecipeStep(
+          key: ValueKey(index),
+          stepIndex: index + 1,
+        ),
+      const SizedBox(
+        height: 16,
+      ),
+      ChefioButton(
+        text: Strings.step,
+        leadingIcon: SVGS.icAdd,
+        isOutlinedButton: true,
+        textColor: AppColors.mainText,
+        backgroundColor: AppColors.outline,
+        onPressed: () {
+          setState(() {
+            recipeSteps++;
+          });
+        },
+      ),
+    ]));
+
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          child: Column(
+            children: [
+              Expanded(
+                child: CustomScrollView(
+                  slivers: [ingredientList, steps],
+                ),
+              ),
+              Row(
+                children: [
+                  Flexible(
+                    child: ChefioButton(
+                      text: Strings.back,
+                      onPressed: () {},
+                      backgroundColor: AppColors.form,
+                      textColor: AppColors.mainText,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Flexible(
+                    child: ChefioButton(
+                      text: Strings.next,
+                      onPressed: () {},
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

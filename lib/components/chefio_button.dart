@@ -27,6 +27,8 @@ class ChefioButton extends StatelessWidget {
       this.backgroundColor = AppColors.primary});
 
   //TODO: IMPLEMENTATION OF FACTORY METHODS FOR ICON AND TEXT BUTTOM IMPL
+  // Change background color and text color textColor: AppColors.mainText,
+  // backgroundColor: AppColors.outline, for outline.
 
   @override
   Widget build(BuildContext context) {
@@ -42,36 +44,56 @@ class ChefioButton extends StatelessWidget {
           side: BorderSide(color: backgroundColor!, width: 1),
         ),
       ),
-      child: Text(text ?? '',
-          style: Styles.bodyNormal
-              .copyWith(color: disabled ? AppColors.secondaryText : textColor)),
+      child: Text(
+        text ?? '',
+        style: Styles.bodyNormal.copyWith(
+          color: disabled ? AppColors.secondaryText : textColor,
+        ),
+      ),
     );
 
     final buttonStyle = ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
-            textStyle: Styles.bodyNormal.copyWith(color: textColor),
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 19),
-            minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(32))),
+          elevation: 0,
+          backgroundColor: backgroundColor,
+          textStyle: Styles.bodyNormal.copyWith(color: textColor),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 32,
+            vertical: 19,
+          ),
+          minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32),
+          ),
+        ),
         child: Text(
           text ?? '',
-          style: Styles.bodyNormal.copyWith(color: textColor),
+          style: Styles.bodyNormal.copyWith(
+            color: textColor,
+          ),
         ));
 
     final textStyle = TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-            textStyle: Styles.bodyNormal.copyWith(color: textColor),
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 19),
-            minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(32))),
+          textStyle: Styles.bodyNormal.copyWith(
+            color: textColor,
+          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 5,
+            vertical: 19,
+          ),
+          minimumSize: (fillWidth!) ? const Size.fromHeight(50) : null,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32),
+          ),
+        ),
         child: Text(
           text ?? '',
-          style: Styles.bodyNormal.copyWith(color: textColor),
+          style: Styles.bodyNormal.copyWith(
+            color: textColor,
+          ),
         ));
 
     return isOutlinedButton

@@ -20,4 +20,7 @@ class SVGS {
 
   static const icDrag = 'assets/svgs/ic_drag.svg';
   static const icImage = 'assets/svgs/ic_image.svg';
+  static const icCamera = 'assets/svgs/ic_camera.svg';
+
+  static var icAdd = 'assets/svgs/ic_add.svg';
 }

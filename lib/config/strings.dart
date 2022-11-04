@@ -42,10 +42,18 @@ class Strings {
   static const addCoverPhoto = 'Add Cover Photo';
   static const imageUploadLimit = '(up to 12 Mb)';
 
-  static const foodName= 'Food Name';
-  static const foodNameHintText ='Enter food name';
+  static const foodName = 'Food Name';
+  static const foodNameHintText = 'Enter food name';
   static const foodDescHintText = 'Tell a little about your food';
-  static const description ='Description';
+  static const description = 'Description';
   static const cookingDuration = 'Cooking Duration ';
-  static const cookingDurationCont= '(in minutes)';
+  static const cookingDurationCont = '(in minutes)';
+
+  static const step = 'Step';
+  static const steps = 'Steps';
+
+  static const ingredient = 'Ingredient';
+  static const ingredients = 'Ingredients';
+
+  static const back = 'Back';
 }

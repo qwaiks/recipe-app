@@ -12,8 +12,7 @@ class ChefioTextField extends StatefulWidget {
   final bool outlined;
   final bool isPasswordField;
   final bool showSuffix;
-  final int? minLines;
-  final int? maxLines;
+  final bool multilined;
   final TextEditingController? controller;
   final String? Function(String?)? validators;
   final Function(String?)? onChanged;
@@ -30,8 +29,7 @@ class ChefioTextField extends StatefulWidget {
       this.onChanged,
       this.controller,
       this.label,
-      this.minLines,
-      this.maxLines = 1});
+      this.multilined = false});
 
   @override
   State<ChefioTextField> createState() => _ChefioTextFieldState();
@@ -50,10 +48,8 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
 
   @override
   Widget build(BuildContext context) {
-    final multilinedTextField = widget.minLines != null && widget.minLines! > 1;
-
     final border = OutlineInputBorder(
-      borderRadius: multilinedTextField
+      borderRadius: widget.multilined
           ? BorderRadius.circular(8.0)
           : BorderRadius.circular(32.0),
       borderSide: BorderSide(
@@ -82,7 +78,7 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
               ? _defaultSuffixToogle()
               : null,
       contentPadding: EdgeInsets.symmetric(
-        horizontal: multilinedTextField ? 16 : 24,
+        horizontal: widget.multilined ? 16 : 24,
         vertical: 16,
       ),
       filled: !widget.outlined,
@@ -105,7 +101,7 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
             ),
     );
 
-    final label = Text(widget.label!, style: Styles.headerNormal);
+    final label = Text(widget.label ?? '', style: Styles.headerNormal);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,12 +116,12 @@ class _ChefioTextFieldState extends State<ChefioTextField> {
           keyboardType: widget.inputType,
           decoration: inputDecoration,
           validator: widget.validators,
-          minLines: widget.minLines,
-          maxLines: widget.maxLines,
+          minLines: widget.multilined ? 3 : null,
+          maxLines: widget.multilined ? 4 : 1,
           obscureText: widget.isPasswordField ? _obscureText : false,
           cursorColor: AppColors.primary,
           onChanged: widget.showSuffix ? onChangeAltered : widget.onChanged,
-          style: multilinedTextField ? Styles.bodyNormal : Styles.headerNormal,
+          style: widget.multilined ? Styles.bodyNormal : Styles.headerNormal,
         )
       ],
     );

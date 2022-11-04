@@ -9,16 +9,23 @@ class IngredientTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SvgPicture.asset(SVGS.icDrag),
-        const SizedBox(
-          width: 8,
-        ),
-        ChefioTextField(
-          hintText: Strings.enterIngredients,
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        key: key,
+        children: [
+          SvgPicture.asset(SVGS.icDrag),
+          const SizedBox(
+            width: 16,
+          ),
+          const Flexible(
+            child: ChefioTextField(
+              hintText: Strings.enterIngredients,
+              outlined: true,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

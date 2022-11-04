@@ -1,6 +1,7 @@
 import 'package:chefio/components/chefio_image_picker.dart';
 import 'package:chefio/components/chefio_slider.dart';
 import 'package:chefio/components/chefio_textfield.dart';
+import 'package:chefio/config/colors.dart';
 import 'package:chefio/config/style.dart';
 import 'package:flutter/material.dart';
 
@@ -36,16 +37,17 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
             label: Strings.description,
             hintText: Strings.foodDescHintText,
             outlined: true,
-            minLines: 3,
-            maxLines: 5,
+            multilined: true,
           ),
           const SizedBox(
             height: 24,
           ),
-          const Text.rich(
+          Text.rich(
             TextSpan(text: Strings.cookingDuration, children: [
               TextSpan(
-                  text: Strings.cookingDurationCont, style: Styles.bodyNormal)
+                  text: Strings.cookingDurationCont,
+                  style: Styles.bodyNormal
+                      .copyWith(color: AppColors.secondaryText))
             ]),
             style: Styles.headerNormal,
           ),

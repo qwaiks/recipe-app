@@ -56,4 +56,10 @@ class Strings {
   static const ingredients = 'Ingredients';
 
   static const back = 'Back';
+
+  static const recipeCategories = ['All', 'Food', 'Drinks'];
+
+  static const category = 'Category';
+
+  static var cancel = 'Cancel';
 }

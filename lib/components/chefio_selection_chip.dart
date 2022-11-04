@@ -6,7 +6,7 @@ class ChefioSelectionChip extends StatefulWidget {
   final List<String> items;
   final ValueChanged<String?> onSelectionChange;
   final bool isLinear;
-  final String initialSelected;
+  final String? initialSelected;
   final Color activeColor, inActiveColor;
   final bool isOutlined;
 
@@ -14,7 +14,7 @@ class ChefioSelectionChip extends StatefulWidget {
     super.key,
     required this.items,
     required this.onSelectionChange,
-    required this.initialSelected,
+    this.initialSelected,
     this.isOutlined = false,
     this.isLinear = false,
     this.activeColor = AppColors.primary,

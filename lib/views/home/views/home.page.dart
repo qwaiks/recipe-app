@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 import '../../../components/recipe_tile.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

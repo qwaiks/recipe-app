@@ -1,4 +1,4 @@
-import 'package:chefio/views/home/views/home.screen.dart';
+import 'package:chefio/views/home/views/home.page.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -12,7 +12,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomeScreen(),
+      body: HomePage(),
     );
   }
 }

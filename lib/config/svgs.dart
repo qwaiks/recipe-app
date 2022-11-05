@@ -22,5 +22,7 @@ class SVGS {
   static const icImage = 'assets/svgs/ic_image.svg';
   static const icCamera = 'assets/svgs/ic_camera.svg';
 
-  static var icAdd = 'assets/svgs/ic_add.svg';
+  static const icAdd = 'assets/svgs/ic_add.svg';
+
+  static const share = 'assets/svgs/ic_share.svg';
 }

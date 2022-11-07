@@ -162,6 +162,11 @@ class RecipeDetailsScreen extends StatelessWidget {
       ],
     );
 
+    final divider = Divider(
+      color: AppColors.outline,
+      thickness: 2,
+    );
+
     final steps = Column(
       children: [
         ...[1, 2, 3, 5, 6, 7, 8, 9]
@@ -201,13 +206,25 @@ class RecipeDetailsScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
+                  divider,
+                  const SizedBox(
+                    height: 16,
+                  ),
                   description,
                   const SizedBox(
-                    height: 24,
+                    height: 16,
+                  ),
+                  divider,
+                  const SizedBox(
+                    height: 16,
                   ),
                   ingredients,
                   const SizedBox(
-                    height: 24,
+                    height: 16,
+                  ),
+                  divider,
+                  const SizedBox(
+                    height: 16,
                   ),
                   steps,
                   const SizedBox(

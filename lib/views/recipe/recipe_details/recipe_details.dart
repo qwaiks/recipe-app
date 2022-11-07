@@ -1,4 +1,3 @@
-import 'package:chefio/components/add_step_tile.dart';
 import 'package:chefio/components/chefio_icon.dart';
 import 'package:chefio/config/colors.dart';
 import 'package:chefio/config/imgs.dart';
@@ -162,7 +161,7 @@ class RecipeDetailsScreen extends StatelessWidget {
       ],
     );
 
-    final divider = Divider(
+    const divider = Divider(
       color: AppColors.outline,
       thickness: 2,
     );

@@ -67,10 +67,12 @@ class RecipeTile extends StatelessWidget {
       style: Styles.headerNormal,
     );
 
-    final desc = Text('$recipeType ● >$recipeDuration',
-        style: Styles.bodyNormal.copyWith(
-          color: AppColors.secondaryText,
-        ));
+    final desc = Text(
+      '$recipeType • >$recipeDuration',
+      style: Styles.bodyNormal.copyWith(
+        color: AppColors.secondaryText,
+      ),
+    );
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),

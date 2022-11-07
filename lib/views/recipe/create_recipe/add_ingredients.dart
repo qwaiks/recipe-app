@@ -2,13 +2,13 @@ import 'dart:ui';
 
 import 'package:chefio/components/chefio_button.dart';
 import 'package:chefio/components/ingredient_title.dart';
-import 'package:chefio/components/recipe_step.dart';
+import 'package:chefio/components/add_step_tile.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
 import 'package:chefio/config/svgs.dart';
 import 'package:flutter/material.dart';
 
-import '../../config/colors.dart';
+import '../../../config/colors.dart';
 
 class AddIngredientScreen extends StatefulWidget {
   const AddIngredientScreen({super.key});
@@ -66,7 +66,7 @@ class _AddIngredientScreenState extends State<AddIngredientScreen> {
         height: 16,
       ),
       for (int index = 0; index < recipeSteps; index++)
-        RecipeStep(
+        AddStepTile(
           key: ValueKey(index),
           stepIndex: index + 1,
         ),

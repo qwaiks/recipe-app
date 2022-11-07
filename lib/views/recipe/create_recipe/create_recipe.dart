@@ -5,7 +5,7 @@ import 'package:chefio/config/colors.dart';
 import 'package:chefio/config/style.dart';
 import 'package:flutter/material.dart';
 
-import '../../config/strings.dart';
+import '../../../config/strings.dart';
 
 class CreateRecipeScreen extends StatefulWidget {
   const CreateRecipeScreen({super.key});

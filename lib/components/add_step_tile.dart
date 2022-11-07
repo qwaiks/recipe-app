@@ -6,9 +6,9 @@ import 'package:chefio/config/svgs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class RecipeStep extends StatelessWidget {
+class AddStepTile extends StatelessWidget {
   final int stepIndex;
-  const RecipeStep({super.key, required this.stepIndex});
+  const AddStepTile({super.key, required this.stepIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +19,7 @@ class RecipeStep extends StatelessWidget {
         children: [
           Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.mainText,
-                ),
-                child: Text(
-                  stepIndex.toString(),
-                  style: Styles.bodySmall.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
+              StepIndexWidget(index: stepIndex.toString()),
               const SizedBox(
                 height: 16,
               ),
@@ -67,6 +54,29 @@ class RecipeStep extends StatelessWidget {
             ],
           ))
         ],
+      ),
+    );
+  }
+}
+
+class StepIndexWidget extends StatelessWidget {
+  final String index;
+  const StepIndexWidget({super.key, required this.index});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: AppColors.mainText,
+      ),
+      child: Text(
+        index,
+        style: Styles.bodySmall.copyWith(
+          color: Colors.white,
+          fontWeight: FontWeight.w700,
+        ),
       ),
     );
   }

@@ -11,7 +11,7 @@ class SVGS {
   static const icValidationInactive = 'assets/svgs/ic_validation_inactive.svg';
 
   static const icHeartActive = 'assets/svgs/ic_heart.svg';
-  static const icHeartInactive = 'assets/svgs/ic_heart.svg';
+  static const icHeartInactive = 'assets/svgs/ic_heart_inactive.svg';
 
   static const icSearch = 'assets/svgs/ic_search.svg';
 
@@ -25,4 +25,7 @@ class SVGS {
   static const icAdd = 'assets/svgs/ic_add.svg';
 
   static const share = 'assets/svgs/ic_share.svg';
+  static const icBack = 'assets/svgs/ic_back.svg';
+
+  static const icCheck = 'assets/svgs/ic_check.svg';
 }

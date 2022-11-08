@@ -46,6 +46,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       hintText: Strings.password,
       leadingIcon: SVGS.icLock,
       isPasswordField: true,
+      outlined:true,
       inputType: TextInputType.text,
       validators: (value) {
         if (value != null) {

@@ -1,9 +1,11 @@
 import 'package:chefio/components/chefio_button.dart';
 import 'package:chefio/components/chefio_otp_form.dart';
 import 'package:chefio/config/colors.dart';
+import 'package:chefio/config/routes.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OtpValidationScreen extends StatefulWidget {
   const OtpValidationScreen({super.key});
@@ -68,7 +70,7 @@ class _OtpValidationScreenState extends State<OtpValidationScreen> {
                 ),
                 ChefioButton(
                   text: Strings.next,
-                  onPressed: () {},
+                  onPressed: () => context.go(RoutesPaths.resetPassword),
                 ),
                 const SizedBox(
                   height: 16,
@@ -78,7 +80,7 @@ class _OtpValidationScreenState extends State<OtpValidationScreen> {
                   text: Strings.sendAgain,
                   textColor: AppColors.mainText,
                   backgroundColor: AppColors.outline,
-                  onPressed: () {},
+                  onPressed: () => {},
                   disabled: disableResend ?? true,
                 )
               ],

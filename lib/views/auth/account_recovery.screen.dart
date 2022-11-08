@@ -1,9 +1,11 @@
 import 'package:chefio/components/chefio_button.dart';
 import 'package:chefio/components/chefio_textfield.dart';
 import 'package:chefio/config/colors.dart';
+import 'package:chefio/config/routes.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../config/svgs.dart';
 
@@ -41,6 +43,7 @@ class AccountRecoveryScreen extends StatelessWidget {
                 const ChefioTextField(
                   hintText: Strings.loginHintText,
                   leadingIcon: SVGS.icMail,
+                  outlined: true,
                   inputType: TextInputType.emailAddress,
                 ),
                 const SizedBox(
@@ -48,7 +51,8 @@ class AccountRecoveryScreen extends StatelessWidget {
                 ),
                 ChefioButton(
                   text: Strings.recover,
-                  onPressed: () {},
+                  onPressed: () =>
+                      GoRouter.of(context).go(RoutesPaths.otpValidation),
                 )
               ],
             ),

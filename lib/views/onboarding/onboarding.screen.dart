@@ -1,7 +1,9 @@
 import 'package:chefio/components/chefio_button.dart';
 import 'package:chefio/config/colors.dart';
+import 'package:chefio/config/routes.dart';
 import 'package:chefio/config/style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../config/imgs.dart';
 import '../../config/strings.dart';
@@ -38,7 +40,7 @@ class OnBoardingScreen extends StatelessWidget {
             child: ChefioButton(
               text: Strings.getStarted,
               fillWidth: true,
-              onPressed: () {},
+              onPressed: () => context.go(RoutesPaths.login),
             ),
           ),
           const SizedBox(

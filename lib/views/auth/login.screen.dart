@@ -1,10 +1,12 @@
 import 'package:chefio/components/chefio_button.dart';
 import 'package:chefio/components/chefio_textfield.dart';
 import 'package:chefio/config/colors.dart';
+import 'package:chefio/config/routes.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
 import 'package:chefio/config/svgs.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -17,6 +19,7 @@ class LoginScreen extends StatelessWidget {
           const ChefioTextField(
             hintText: Strings.loginHintText,
             leadingIcon: SVGS.icMail,
+            outlined: true,
             inputType: TextInputType.emailAddress,
           ),
           const SizedBox(
@@ -26,6 +29,7 @@ class LoginScreen extends StatelessWidget {
             hintText: Strings.password,
             leadingIcon: SVGS.icLock,
             isPasswordField: true,
+            outlined: true,
             inputType: TextInputType.text,
             validators: (value) {
               if (value != null) {
@@ -74,8 +78,11 @@ class LoginScreen extends StatelessWidget {
                   child: ChefioButton(
                     text: Strings.forgetPassword,
                     isTextButton: true,
+                    fillWidth: false,
                     textColor: AppColors.mainText,
-                    onPressed: () {},
+                    onPressed: () => GoRouter.of(context).push(
+                      RoutesPaths.accountRecovery,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -84,7 +91,9 @@ class LoginScreen extends StatelessWidget {
                 ChefioButton(
                   fillWidth: true,
                   text: Strings.login,
-                  onPressed: () {},
+                  onPressed: () => context.push(
+                    RoutesPaths.dashboard,
+                  ),
                 ),
                 const SizedBox(
                   height: 24,

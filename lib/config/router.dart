@@ -1,4 +1,5 @@
 import 'package:chefio/config/routes.dart';
+import 'package:chefio/views/auth/account_recovery.screen.dart';
 import 'package:chefio/views/auth/login.screen.dart';
 import 'package:chefio/views/auth/otp_validation.screen.dart';
 import 'package:chefio/views/auth/register.screen.dart';
@@ -46,7 +47,7 @@ final router = GoRouter(routes: <GoRoute>[
   GoRoute(
     path: RoutesPaths.accountRecovery,
     builder: (BuildContext context, GoRouterState state) {
-      return const ResetPasswordScreen();
+      return const AccountRecoveryScreen();
     },
   ),
   GoRoute(

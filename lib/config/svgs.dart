@@ -26,6 +26,11 @@ class SVGS {
 
   static const share = 'assets/svgs/ic_share.svg';
   static const icBack = 'assets/svgs/ic_back.svg';
-
   static const icCheck = 'assets/svgs/ic_check.svg';
+
+  static const icHome = 'assets/svgs/ic_home.svg';
+  static const icUpload = 'assets/svgs/ic_upload.svg';
+  static const icNotification = 'assets/svgs/ic_notification.svg';
+  static const icProfile = 'assets/svgs/ic_profile.svg';
+  static const icScan = 'assets/svgs/ic_scan.svg';
 }

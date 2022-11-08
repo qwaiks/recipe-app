@@ -70,4 +70,10 @@ class Strings {
   static const follow = 'Follow';
 
   static const appName = 'Chefio';
+
+  static const home = 'Home';
+  static const profile = 'Profile';
+  static const notification = 'Notification';
+  static const upload = 'Upload';
+  static const scan = 'Scan';
 }

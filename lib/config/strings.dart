@@ -61,11 +61,13 @@ class Strings {
 
   static const category = 'Category';
 
-  static var cancel = 'Cancel';
+  static const cancel = 'Cancel';
 
   static const recipes = "Recipes";
 
   static const liked = 'Liked';
 
   static const follow = 'Follow';
+
+  static const appName = 'Chefio';
 }

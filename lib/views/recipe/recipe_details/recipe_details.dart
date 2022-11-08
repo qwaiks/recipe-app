@@ -4,9 +4,10 @@ import 'package:chefio/config/imgs.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
 import 'package:chefio/config/svgs.dart';
-import 'package:chefio/views/recipe/recipe_details/component/recipe_step_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'component/recipe_step_tile.dart';
 
 class RecipeDetailsScreen extends StatelessWidget {
   const RecipeDetailsScreen({super.key});

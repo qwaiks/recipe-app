@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio/config/colors.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/style.dart';
@@ -27,31 +29,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       {'icon': SVGS.icProfile, 'title': Strings.profile},
     ];
 
-
-    final homeIcon = BottomItem(
-      icon: SVGS.icHome,
-      title: Strings.home,
-      selected: true,
-    );
-
-    final uploadIcon = BottomItem(
-      icon: SVGS.icUpload,
-      title: Strings.upload,
-      selected: false,
-    );
-
-    final notificationIcon = BottomItem(
-      icon: SVGS.icNotification,
-      title: Strings.notification,
-      selected: false,
-    );
-
-    final profileIcon = BottomItem(
-      icon: SVGS.icProfile,
-      title: Strings.profile,
-      selected: false,
-    );
-
     final pages = [
       const HomePage(),
       Container(),
@@ -59,47 +36,92 @@ class _DashboardScreenState extends State<DashboardScreen> {
       const ProfilePage()
     ];
 
-    final middleOption = Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 50,
-          height: 50,
-          padding: const EdgeInsets.all(10),
-          decoration: const BoxDecoration(
-            color: AppColors.primary,
-            shape: BoxShape.circle,
-          ),
-          child: SvgPicture.asset(
-            SVGS.icScan,
-          ),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        Text(
-          Strings.scan,
-          style: Styles.bodySmall.copyWith(
-            color: AppColors.secondaryText,
-          ),
-        ),
-      ],
-    );
-
     return Scaffold(
       body: SafeArea(
         child: pages[pageIndex],
       ),
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      bottomNavigationBar: BottomNavigationBar(
+        items: items,
+        selectedIndex: pageIndex,
+        onTap: (value) {
+          setState(() {
+            pageIndex = value;
+          });
+        },
+      ),
+    );
+  }
+}
+
+class BottomNavigationBar extends StatelessWidget {
+  final List<Map<String, String>> items;
+  final Function(int) onTap;
+  final int selectedIndex;
+
+  const BottomNavigationBar(
+      {super.key,
+      required this.items,
+      required this.onTap,
+      required this.selectedIndex});
+
+  @override
+  Widget build(BuildContext context) {
+    final middleOption = Align(
+      alignment: Alignment.bottomCenter,
+      heightFactor: 0.65,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          homeIcon,
-          uploadIcon,
-          middleOption,
-          notificationIcon,
-          profileIcon
+          Container(
+            width: 60,
+            height: 60,
+            padding: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(
+              color: AppColors.primary,
+              shape: BoxShape.circle,
+            ),
+            child: SvgPicture.asset(
+              SVGS.icScan,
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Text(
+            Strings.scan,
+            style: Styles.bodySmall.copyWith(color: AppColors.secondaryText),
+          ),
         ],
       ),
+    );
+
+    final List<Widget> pages = [
+      for (int i = 0; i < items.length; i++)
+        BottomItem(
+          icon: items[i]['icon']!,
+          title: items[i]['title']!,
+          selected: i == selectedIndex,
+          index: i,
+          onTap: onTap,
+        )
+    ];
+    pages.insert(
+        2,
+        const SizedBox(
+          width: 70,
+        ));
+    return Stack(
+      children: [
+        Container(
+          height: 70,
+          color: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: pages,
+          ),
+        ),
+        middleOption,
+      ],
     );
   }
 }
@@ -109,7 +131,7 @@ class BottomItem extends StatelessWidget {
   final String title;
   final bool selected;
   final int index;
-  final Function onTap;
+  final Function(int) onTap;
 
   const BottomItem({
     super.key,
@@ -122,25 +144,28 @@ class BottomItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: () => onTap,
-      minWidth: 44,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SvgPicture.asset(
-            icon,
-            color: selected ? AppColors.primary : AppColors.secondaryText,
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            title,
-            style: Styles.bodySmall.copyWith(
-                color: selected ? AppColors.primary : AppColors.secondaryText),
-          )
-        ],
+    return SizedBox(
+      width: 70,
+      child: InkWell(
+        onTap: () => onTap(index),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SvgPicture.asset(
+              icon,
+              color: selected ? AppColors.primary : AppColors.secondaryText,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Text(
+              title,
+              style: Styles.bodySmall.copyWith(
+                  color:
+                      selected ? AppColors.primary : AppColors.secondaryText),
+            )
+          ],
+        ),
       ),
     );
   }

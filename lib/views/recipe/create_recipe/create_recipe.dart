@@ -1,3 +1,4 @@
+import 'package:chefio/components/chefio_button.dart';
 import 'package:chefio/components/chefio_image_picker.dart';
 import 'package:chefio/components/chefio_slider.dart';
 import 'package:chefio/components/chefio_textfield.dart';
@@ -66,6 +67,11 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
       ),
     );
 
+    final button = ChefioButton(
+      text: Strings.next,
+      onPressed: () {},
+    );
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -81,6 +87,11 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
                 height: 24,
               ),
               form,
+              const Spacer(),
+              button,
+              const SizedBox(
+                height: 24,
+              )
             ],
           ),
         ),

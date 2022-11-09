@@ -16,8 +16,6 @@ class CreateRecipeScreen extends StatefulWidget {
 }
 
 class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
-  double? _value = 0;
-
   @override
   Widget build(BuildContext context) {
     const featureImage = ChefioImagePicker();
@@ -57,11 +55,7 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
           ),
           ChefioSlider(
             values: const [10, 30, 60],
-            onChanged: (value) {
-              setState(() {
-                _value = value;
-              });
-            },
+            onChanged: (value) {},
           )
         ],
       ),

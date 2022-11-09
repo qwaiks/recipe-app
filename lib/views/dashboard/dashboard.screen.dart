@@ -1,3 +1,4 @@
+import 'package:chefio/config/routes.dart';
 import 'package:chefio/config/strings.dart';
 import 'package:chefio/config/svgs.dart';
 import 'package:chefio/views/dashboard/views/home.page.dart';
@@ -5,6 +6,7 @@ import 'package:chefio/views/dashboard/views/notification/notification.page.dart
 import 'package:chefio/views/dashboard/views/profile.page.dart';
 import 'package:chefio/views/recipe/create_recipe/create_recipe.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'components/bottom_navigation_bar.dart';
 
@@ -42,9 +44,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
         items: items,
         selectedIndex: pageIndex,
         onTap: (value) {
-          setState(() {
-            pageIndex = value;
-          });
+          value == 1
+              ? GoRouter.of(context).push(
+                  RoutesPaths.uploadRecipe,
+                )
+              : setState(() {
+                  pageIndex = value;
+                });
         },
       ),
     );

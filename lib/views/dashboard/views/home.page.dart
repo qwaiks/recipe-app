@@ -12,18 +12,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final recipes = GridView.builder(
-      itemCount: 3,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: 5,
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisExtent: 310,
         childAspectRatio: 12,
       ),
-      itemBuilder: (context, index) => RecipeTile(),
+      itemBuilder: (context, index) => const RecipeTile(),
     );
 
     final category = ChefioSelectionChip(
-        items: ['All', 'Food', 'Drinks'],
+        items: Strings.recipeCategories,
         onSelectionChange: (value) {},
         initialSelected: 'All');
 
@@ -35,7 +36,7 @@ class HomePage extends StatelessWidget {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

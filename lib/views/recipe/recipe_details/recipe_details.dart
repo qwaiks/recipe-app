@@ -119,8 +119,9 @@ class RecipeDetailsScreen extends StatelessWidget {
           height: 8,
         ),
         Text(
-          'Your recipe has been uploaded, you can see it on your profile.' +
-              'Your recipe has been uploaded, you can see it on your',
+          """
+Your recipe has been uploaded, you can see it on your profile.
+ Your recipe has been uploaded, you can see it on your""",
           style: Styles.bodyNormal.copyWith(
             color: AppColors.secondaryText,
           ),

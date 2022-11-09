@@ -86,4 +86,10 @@ final router = GoRouter(routes: <GoRoute>[
       return const AddIngredientScreen();
     },
   ),
+  GoRoute(
+    path: RoutesPaths.uploadRecipe,
+    builder: (context, state) {
+      return const CreateRecipeScreen();
+    },
+  ),
 ]);

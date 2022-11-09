@@ -74,7 +74,7 @@ class ChefioBottomNavigationBar extends StatelessWidget {
             children: pages,
           ),
         ),
-        middleOption,
+        selectedIndex == 1 ? const SizedBox() : middleOption,
       ],
     );
   }

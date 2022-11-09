@@ -16,7 +16,6 @@ class SearchFilterBottomSheet extends StatefulWidget {
 }
 
 class _SearchFilterBottomSheetState extends State<SearchFilterBottomSheet> {
-  double? _value;
   String? selectedCategory;
 
   @override
@@ -81,11 +80,7 @@ class _SearchFilterBottomSheetState extends State<SearchFilterBottomSheet> {
         ),
         ChefioSlider(
           values: const [10, 30, 60],
-          onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
-          },
+          onChanged: (value) {},
         ),
         const SizedBox(
           height: 52,

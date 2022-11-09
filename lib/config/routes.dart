@@ -8,8 +8,9 @@ class RoutesPaths {
   static const otpValidation = '/otp-validation';
   static const accountRecovery = '/account-recovery';
   static const dashboard = '/dashboard';
-  static var createRecipe = '/create-recipe';
-  static var recipeDetials = '/recipe-details';
-  static var search = '/search';
-  static var addIngredients = '/add-ingredients';
+  static const createRecipe = '/create-recipe';
+  static const recipeDetials = '/recipe-details';
+  static const search = '/search';
+  static const addIngredients = '/add-ingredients';
+  static const uploadRecipe ='/upload-recipe';
 }

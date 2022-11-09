@@ -4,7 +4,7 @@ import 'package:chefio/views/auth/login.screen.dart';
 import 'package:chefio/views/auth/otp_validation.screen.dart';
 import 'package:chefio/views/auth/register.screen.dart';
 import 'package:chefio/views/auth/reset_password.screen.dart';
-import 'package:chefio/views/home/dashboard.screen.dart';
+import 'package:chefio/views/dashboard/dashboard.screen.dart';
 import 'package:chefio/views/onboarding/onboarding.screen.dart';
 import 'package:chefio/views/recipe/create_recipe/add_ingredients.dart';
 import 'package:chefio/views/recipe/create_recipe/create_recipe.dart';

@@ -76,4 +76,12 @@ class Strings {
   static const notification = 'Notification';
   static const upload = 'Upload';
   static const scan = 'Scan';
+
+  static const followed = 'Followed';
+
+  static const yesterday = 'Yesterday';
+
+  static const today = 'Today';
+
+  static const newText = 'New';
 }

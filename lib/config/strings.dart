@@ -84,4 +84,6 @@ class Strings {
   static const today = 'Today';
 
   static const newText = 'New';
+
+  static const food = 'Food';
 }

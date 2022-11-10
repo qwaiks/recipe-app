@@ -5,4 +5,7 @@ class Imgs {
   static const dummyAvatar2 = 'assets/imgs/dummy_avatar1.jpg';
   static const dummyAvatar3 = 'assets/imgs/dummy_avatar2.jpg';
   static const dummyFeatured = 'assets/imgs/dummy_featured.jpg';
+
+  static const foodOption = 'assets/imgs/food_option.png';
+  static const ingredientOption = 'assets/imgs/ingredient_option.png';
 }

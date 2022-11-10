@@ -10,7 +10,8 @@ import 'package:flutter_svg/svg.dart';
 import 'component/recipe_step_tile.dart';
 
 class RecipeDetailsScreen extends StatelessWidget {
-  const RecipeDetailsScreen({super.key});
+  final int index;
+  const RecipeDetailsScreen({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +62,12 @@ class RecipeDetailsScreen extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(32), topRight: Radius.circular(32))),
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(32),
+            topRight: Radius.circular(32),
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
@@ -183,6 +187,7 @@ Your recipe has been uploaded, you can see it on your profile.
         slivers: [
           SliverAppBar(
             elevation: 0,
+            automaticallyImplyLeading: false,
             title: Align(
               alignment: Alignment.centerLeft,
               child: ChefioIcon(
@@ -195,10 +200,13 @@ Your recipe has been uploaded, you can see it on your profile.
             expandedHeight: 375,
             collapsedHeight: 200,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                Imgs.dummyFeatured,
-                width: double.infinity,
-                fit: BoxFit.cover,
+              background: Hero(
+                tag: index,
+                child: Image.asset(
+                  Imgs.dummyFeatured,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

@@ -67,7 +67,9 @@ class ProfilePage extends StatelessWidget {
         mainAxisExtent: 310,
         childAspectRatio: 12,
       ),
-      itemBuilder: (context, index) => const RecipeTile(),
+      itemBuilder: (context, index) => RecipeTile(
+        index: index,
+      ),
     );
 
     final likedView = GridView.builder(
@@ -78,7 +80,9 @@ class ProfilePage extends StatelessWidget {
         mainAxisExtent: 310,
         childAspectRatio: 12,
       ),
-      itemBuilder: (context, index) =>const RecipeTile(),
+      itemBuilder: (context, index) => RecipeTile(
+        index: index,
+      ),
     );
 
     const tabHeader = TabBar(

@@ -88,6 +88,32 @@ class _AddIngredientScreenState extends State<AddIngredientScreen> {
     ]));
 
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leadingWidth: 80,
+        leading: ChefioButton(
+          isTextButton: true,
+          fillWidth: false,
+          text: 'Cancel',
+          textColor: AppColors.secondary,
+          onPressed: () {},
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Center(
+                child: Text.rich(
+              TextSpan(text: '2', style: Styles.headerNormal, children: [
+                TextSpan(
+                    text: '/2',
+                    style: Styles.headerSmall
+                        .copyWith(color: AppColors.secondaryText))
+              ]),
+            )),
+          )
+        ],
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -95,7 +121,13 @@ class _AddIngredientScreenState extends State<AddIngredientScreen> {
             children: [
               Expanded(
                 child: CustomScrollView(
-                  slivers: [ingredientList, steps],
+                  slivers: [
+                    ingredientList,
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    steps,
+                  ],
                 ),
               ),
               Row(

@@ -46,7 +46,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         onTap: (value) {
           value == 1
               ? GoRouter.of(context).push(
-                  RoutesPaths.uploadRecipe,
+                  RoutesPaths.createRecipe,
                 )
               : setState(() {
                   pageIndex = value;

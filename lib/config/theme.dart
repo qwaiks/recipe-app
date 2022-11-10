@@ -5,8 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Themes {
   static final defaultTheme = ThemeData(
-      primaryColor: AppColors.primary,
-      textTheme: GoogleFonts.interTextTheme().copyWith(
-        bodyText1: Styles.bodyNormal,
-      ));
+    primaryColor: AppColors.primary,
+    backgroundColor: Colors.white,
+    textTheme: GoogleFonts.interTextTheme().copyWith(
+      bodyText1: Styles.bodyNormal,
+    ),
+  );
 }

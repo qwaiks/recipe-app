@@ -12,5 +12,4 @@ class RoutesPaths {
   static const recipeDetials = '/recipe-details';
   static const search = '/search';
   static const addIngredients = '/add-ingredients';
-  static const uploadRecipe ='/upload-recipe';
 }

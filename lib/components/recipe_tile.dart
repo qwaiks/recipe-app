@@ -1,15 +1,18 @@
 import 'dart:ui';
 
 import 'package:chefio/config/colors.dart';
+import 'package:chefio/config/routes.dart';
 import 'package:chefio/config/style.dart';
 import 'package:chefio/config/svgs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../config/imgs.dart';
 
 class RecipeTile extends StatelessWidget {
-  const RecipeTile({super.key});
+  final int index;
+  const RecipeTile({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +23,13 @@ class RecipeTile extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(11),
-          child: Image.asset(
-            Imgs.dummyAvatar,
-            width: 31,
-            height: 31,
+          child: Hero(
+            tag: index,
+            child: Image.asset(
+              Imgs.dummyAvatar,
+              width: 31,
+              height: 31,
+            ),
           ),
         ),
         const SizedBox(width: 8),
@@ -74,26 +80,30 @@ class RecipeTile extends StatelessWidget {
       ),
     );
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          profile,
-          const SizedBox(
-            height: 16,
-          ),
-          featureItem,
-          const SizedBox(
-            height: 16,
-          ),
-          title,
-          const SizedBox(
-            height: 8,
-          ),
-          desc
-        ],
+    return InkWell(
+      onTap: () =>
+          context.push(RoutesPaths.recipeDetials, extra: {'index': index}),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            profile,
+            const SizedBox(
+              height: 16,
+            ),
+            featureItem,
+            const SizedBox(
+              height: 16,
+            ),
+            title,
+            const SizedBox(
+              height: 8,
+            ),
+            desc
+          ],
+        ),
       ),
     );
   }

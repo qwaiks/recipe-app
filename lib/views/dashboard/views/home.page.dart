@@ -20,13 +20,15 @@ class HomePage extends StatelessWidget {
         mainAxisExtent: 310,
         childAspectRatio: 12,
       ),
-      itemBuilder: (context, index) => const RecipeTile(),
+      itemBuilder: (context, index) => RecipeTile(
+        index: index,
+      ),
     );
 
     final category = ChefioSelectionChip(
         items: Strings.recipeCategories,
         onSelectionChange: (value) {},
-        initialSelected: 'All');
+        initialSelected: Strings.recipeCategories.first);
 
     const search = ChefioTextField(
       hintText: Strings.search,

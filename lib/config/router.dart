@@ -65,7 +65,10 @@ final router = GoRouter(routes: <GoRoute>[
   GoRoute(
     path: RoutesPaths.recipeDetials,
     builder: (context, state) {
-      return const RecipeDetailsScreen();
+      final num = state.extra as Map;
+      return RecipeDetailsScreen(
+        index: num['index'],
+      );
     },
   ),
   GoRoute(
@@ -84,12 +87,6 @@ final router = GoRouter(routes: <GoRoute>[
     path: RoutesPaths.addIngredients,
     builder: (context, state) {
       return const AddIngredientScreen();
-    },
-  ),
-  GoRoute(
-    path: RoutesPaths.uploadRecipe,
-    builder: (context, state) {
-      return const CreateRecipeScreen();
     },
   ),
 ]);

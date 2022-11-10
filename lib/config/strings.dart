@@ -78,12 +78,9 @@ class Strings {
   static const scan = 'Scan';
 
   static const followed = 'Followed';
-
   static const yesterday = 'Yesterday';
-
   static const today = 'Today';
-
   static const newText = 'New';
-
   static const food = 'Food';
+  static var chooseOption = 'Choose one option';
 }
